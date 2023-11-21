@@ -1,0 +1,48 @@
+{% extends 'layout.html'%}
+
+{%block content%}
+
+{% load static %}
+
+<header class="row bg-white my-auto ">
+
+ <div class="row justify-content-center">
+    <img src="{% static 'portfolio/portada.jpg' %}" class="img-fluid" alt=""/>
+ </div>
+
+
+    <h1> Hola soy  <strong> Tamara Dickerhof</strong></h1>
+    <h3> Bievenidos a mi pagina de guia turistica de Europa del Este.</h3>
+
+    </div>
+
+
+</header>
+
+
+<div class="row my-4 text-center">
+
+<h3>Ciudades</h3>
+
+{% for project in projects %}
+<div class="col-md-4 p-4">
+  <div class="card bg- card-project">
+    <img src="{{project.imagen.url }}" class="card-img-top" />
+
+    <div class="card-body">
+
+      <h2>{{ project.titulo }}</h2>
+      <p>{{ project.descripcion }}</p>
+
+      {% if project.url %}
+      <a href="{{project.url}}" class="btn btn-light rounded-0 btn-sm" target="__blank" rel="noreferrer">Visita la ciudad
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endfor %}
+</div>
+
+
+{% endblock %}
